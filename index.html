@@ -184,8 +184,11 @@ async function submitForm() {
 
     const webhook = "https://discord.com/api/webhooks/1521992051086856225/MSN7Y2Kaeb0F3w-hYHnlz-jy6wci64FA_wP4HNa_cHuQe6ckkcE1BBYFI-vOq_-f6c8I";
 
-    const data = {
-        content: "**📥 New SDP Assessment Submission**\n\n" +
+  await fetch(webhook, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+        content: `<@&${1520710539985289216}>\n\n📥 New SDP Submission\n\n` +
         "**Q1:** " + document.getElementById("q1").value + "\n" +
         "**Q2:** " + document.getElementById("q2").value + "\n" +
         "**Q3:** " + document.getElementById("q3").value + "\n" +
@@ -200,16 +203,13 @@ async function submitForm() {
         "**Q12:** " + document.getElementById("q12").value + "\n" +
         "**Q13:** " + document.getElementById("q13").value + "\n" +
         "**Q14:** " + document.getElementById("q14").value + "\n" +
-        "**Q15:** " + document.getElementById("q15").value + "\n\n" +
-        <@&1520710539985289216>
+        "**Q15:** " + document.getElementById("q15").value + "\n",
 
-    };
-
-    await fetch(webhook, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-    });
+        allowed_mentions: {
+            roles: [1520710539985289216]
+        }
+    })
+});
 
     document.getElementById("success").style.display = "block";
 }
