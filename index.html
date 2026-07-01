@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SDP Assessment</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b0b0b;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(90deg, #ff0033, #111);
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #1a1a1a;
+    color: white;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: #ff0033;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: #cc002a;
+}
+
+.success {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    color: limegreen;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🔺 SQUID GAME UNIVERSAL RP - SDP PHASE 4 ASSESSMENT 🔺
+</div>
+
+<div class="container">
+<div class="question">
+<label>Roblox Username</label>
+<textarea id="rbUsername"></textarea>
+</div>
+
+<div class="question">
+<label>1. Do Developers have authority over High Command?</label>
+<textarea id="q1"></textarea>
+</div>
+
+<div class="question">
+<label>2. What is the correct punishment if a VIP disrupts an event?</label>
+<textarea id="q2"></textarea>
+</div>
+
+<div class="question">
+<label>3. Explain Rule 0.13 in the Codex.</label>
+<textarea id="q3"></textarea>
+</div>
+
+<div class="question">
+<label>4. What is the Staff Development Program about?</label>
+<textarea id="q4"></textarea>
+</div>
+
+<div class="question">
+<label>5. What do you do if you receive a report about a Director abusing admin?</label>
+<textarea id="q5"></textarea>
+</div>
+
+<div class="question">
+<label>6. Your superior gives an order that breaks rules. What do you do?</label>
+<textarea id="q6"></textarea>
+</div>
+
+<div class="question">
+<label>7. Who should a Manager go to in the chain of command?</label>
+<textarea id="q7"></textarea>
+</div>
+
+<div class="question">
+<label>8. What does a Supervisor do?</label>
+<textarea id="q8"></textarea>
+</div>
+
+<div class="question">
+<label>9. What is the first rank of Supreme Command?</label>
+<textarea id="q9"></textarea>
+</div>
+
+<div class="question">
+<label>10. Explain the Internal Affairs Division.</label>
+<textarea id="q10"></textarea>
+</div>
+
+<div class="question">
+<label>11. Can you kick the Front Man from your tryout if they are distracting?</label>
+<textarea id="q11"></textarea>
+</div>
+
+<div class="question">
+<label>12. What is on Floor 3?</label>
+<textarea id="q12"></textarea>
+</div>
+
+<div class="question">
+<label>13. Which floor do the Soldiers shoot from?</label>
+<textarea id="q13"></textarea>
+</div>
+
+<div class="question">
+<label>14. Who is the current SDT Director?</label>
+<textarea id="q14"></textarea>
+</div>
+
+<div class="question">
+<label>15. What role is the beginning of SDT High Command?</label>
+<textarea id="q15"></textarea>
+</div>
+if (!document.getElementById("rbUsername").value) {
+    alert("Please enter your Roblox username.");
+    return;
+}
+
+<button onclick="submitForm()">Submit Assessment</button>
+
+<div class="success" id="success">
+✔ Submission sent successfully!
+</div>
+
+</div>
+
+<script>
+async function submitForm() {
+
+    const webhook = "https://discord.com/api/webhooks/1521992051086856225/MSN7Y2Kaeb0F3w-hYHnlz-jy6wci64FA_wP4HNa_cHuQe6ckkcE1BBYFI-vOq_-f6c8I";
+
+    const data = {
+        content: "**📥 New SDP Assessment Submission**\n\n" +
+        "**Q1:** " + document.getElementById("q1").value + "\n" +
+        "**Q2:** " + document.getElementById("q2").value + "\n" +
+        "**Q3:** " + document.getElementById("q3").value + "\n" +
+        "**Q4:** " + document.getElementById("q4").value + "\n" +
+        "**Q5:** " + document.getElementById("q5").value + "\n" +
+        "**Q6:** " + document.getElementById("q6").value + "\n" +
+        "**Q7:** " + document.getElementById("q7").value + "\n" +
+        "**Q8:** " + document.getElementById("q8").value + "\n" +
+        "**Q9:** " + document.getElementById("q9").value + "\n" +
+        "**Q10:** " + document.getElementById("q10").value + "\n" +
+        "**Q11:** " + document.getElementById("q11").value + "\n" +
+        "**Q12:** " + document.getElementById("q12").value + "\n" +
+        "**Q13:** " + document.getElementById("q13").value + "\n" +
+        "**Q14:** " + document.getElementById("q14").value + "\n" +
+        "**Q15:** " + document.getElementById("q15").value + "\n\n" +
+        "1520710539985289216"
+    };
+
+    await fetch(webhook, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+    });
+
+    document.getElementById("success").style.display = "block";
+}
+</script>
+
+</body>
+</html>
