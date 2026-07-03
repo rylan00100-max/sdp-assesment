@@ -190,50 +190,21 @@ if (!document.getElementById("rbUsername").value) {
 </div>
 
 <script>
-async function submitForm() {
-
+<script>
 const webhook = "https://discord.com/api/webhooks/1521992051086856225/MSN7Y2Kaeb0F3w-hYHnlz-jy6wci64FA_wP4HNa_cHuQe6ckkcE1BBYFI-vOq_-f6c8I";
 const ROLE_ID = "1520710539985289216";
 
-await fetch(webhook, {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-        content:
-
-content: "<@&1520710539985289216> NEW SDP SUBMISSION"
-
-
-Roblox: ${document.getElementById("robloxUsername").value}
-Discord: ${document.getElementById("discordUsername").value}
-
-Q1: ${document.getElementById("q1").value}
-Q2: ${document.getElementById("q2").value}
-Q3: ${document.getElementById("q3").value}
-Q4: ${document.getElementById("q4").value}
-Q5: ${document.getElementById("q5").value}
-Q6: ${document.getElementById("q6").value}
-Q7: ${document.getElementById("q7").value}
-Q8: ${document.getElementById("q8").value}
-Q9: ${document.getElementById("q9").value}
-Q10: ${document.getElementById("q10").value}
-Q11: ${document.getElementById("q11").value}
-Q12: ${document.getElementById("q12").value}
-Q13: ${document.getElementById("q13").value}
-Q14: ${document.getElementById("q14").value}
-Q15: ${document.getElementById("q15").value}`,
-
-        allowed_mentions: {
-    parse: ["roles"],
-    roles: ["1520710539985289216"]
+async function submitForm() {
+    await fetch(webhook, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            content: `<@&${ROLE_ID}> NEW SDP SUBMISSION`
+        })
+    });
 }
+</script>
 
-        }
-    })
-});
-
-alert("Submitted!");
-}
 
 </script>
 
