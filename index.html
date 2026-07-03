@@ -233,8 +233,7 @@ try {
 } catch (err) {
     alert("Failed to send. Check webhook or console.");
     console.error(err);
-
-    const webhookURL = "https://discord.com/api/webhooks/1522619240732037191/cST6C-ViWEK77HQhovE3f85tZFYhixwKsfBQVb8l5oA67janbUK35d809pXeOptn3Vyv";
+ const webhookURL = "https://discord.com/api/webhooks/1522619240732037191/cST6C-ViWEK77HQhovE3f85tZFYhixwKsfBQVb8l5oA67janbUK35d809pXeOptn3Vyv";
 const roleID = "1520710539985289216";
 
 function sendExamSubmission(studentName, examTitle, score) {
@@ -244,9 +243,9 @@ function sendExamSubmission(studentName, examTitle, score) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      content: `<@&${roleID}> New exam submission!\n\nStudent: ${studentName}\nExam: ${examTitle}\nScore: ${score}`,
+      content: `<@&$1520710539985289216> New exam submission!\n\nStudent: ${studentName}\nExam: ${examTitle}\nScore: ${score}`,
       allowed_mentions: {
-        roles: [roleID]
+        roles: 1520710539985289216
       }
     })
   });
